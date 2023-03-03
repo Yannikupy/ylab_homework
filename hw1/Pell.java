@@ -7,7 +7,13 @@ import java.util.Scanner;
 
 public class Pell {
 
-    public static int getPellNumber(int n) {
+    private static int getPellNumberRecursively(int n) {
+        if (n == 0) return 0;
+        if (n == 1) return 1;
+        return 2 * getPellNumberRecursively(n - 1) + getPellNumberRecursively(n - 2);
+    }
+
+    private static int getPellNumberIteratively(int n) {
         List<Integer> pellNumbers = new ArrayList<>();
         pellNumbers.add(0);
         pellNumbers.add(1);
@@ -17,10 +23,10 @@ public class Pell {
         return pellNumbers.get(n);
     }
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         try (Scanner scanner = new Scanner(System.in)) {
             int n = scanner.nextInt();
-            System.out.println(getPellNumber(n));
+            System.out.println(getPellNumberIteratively(n));
         }
 
     }
