@@ -1,5 +1,5 @@
 package hw2;
 
-public interface RateLimiterPrinter {
-    public void print(String message);
+public interface RateLimitedPrinter {
+    void print(String message);
 }

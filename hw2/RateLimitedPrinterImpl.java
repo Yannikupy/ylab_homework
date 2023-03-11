@@ -1,8 +1,8 @@
 package hw2;
 
 
-public class RateLimitedPrinterImpl implements RateLimiterPrinter {
-    private long interval;
+public class RateLimitedPrinterImpl implements RateLimitedPrinter {
+    private final long interval;
     private long lastCallTime;
 
     public RateLimitedPrinterImpl(int interval) {
@@ -13,8 +13,8 @@ public class RateLimitedPrinterImpl implements RateLimiterPrinter {
     public void print(String message) {
         long currentTime = System.currentTimeMillis();
         if (currentTime - lastCallTime > interval) {
-            System.out.println(message);
             lastCallTime = currentTime;
+            System.out.println(message);
         }
     }
 }
