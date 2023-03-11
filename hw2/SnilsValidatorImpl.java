@@ -10,10 +10,7 @@ public class SnilsValidatorImpl implements SnilsValidator {
         if (snils == null || snils.length() != 11) {
             return false;
         }
-        String regex = ".*[a-zA-Z].*";  // regex to check if string contains any letters
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcherText = pattern.matcher(snils);
-        if (matcherText.matches()) {
+        if (!snils.matches("[0-9]+")) { // regex to check if string contains only numbers
             return false;
         }
         int multiplicationSum = 0;
