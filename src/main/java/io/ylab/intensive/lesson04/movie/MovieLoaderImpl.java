@@ -93,6 +93,7 @@ public class MovieLoaderImpl implements MovieLoader {
                 insertMovieIntoDb(movie, preparedStatement);
                 batchSize++;
             }
+            preparedStatement.executeBatch();
         } catch (SQLException | FileNotFoundException e) {
             e.printStackTrace();
         }
