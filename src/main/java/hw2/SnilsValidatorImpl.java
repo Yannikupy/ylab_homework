@@ -1,8 +1,5 @@
 package hw2;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class SnilsValidatorImpl implements SnilsValidator {
 
     @Override
