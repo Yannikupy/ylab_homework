@@ -3,7 +3,7 @@ package hw2;
 import java.util.function.Function;
 import java.util.stream.IntStream;
 
-import static java.lang.Math.*;
+import static java.lang.Math.pow;
 
 public class SequenceGeneratorImpl implements SequenceGenerator {
 
