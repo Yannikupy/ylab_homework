@@ -61,9 +61,10 @@ public class MessageFilter implements DisposableBean {
     private String censorBadWords(String receivedMessage, PreparedStatement preparedStatement) {
         StringBuilder processedMessage = new StringBuilder();
         StringTokenizer st = new StringTokenizer
-                (receivedMessage, " .,;?!\n", true);
+                (receivedMessage, " .,;?!\n\t\r", true);
         while (st.hasMoreTokens()) {
             String nextToken = st.nextToken();
+            System.out.println(nextToken);
             try {
                 preparedStatement.setString(1, nextToken);
                 ResultSet resultSet = preparedStatement.executeQuery();
@@ -78,6 +79,7 @@ public class MessageFilter implements DisposableBean {
                 e.printStackTrace();
             }
         }
+        System.out.println(processedMessage);
         return processedMessage.toString();
     }
 
