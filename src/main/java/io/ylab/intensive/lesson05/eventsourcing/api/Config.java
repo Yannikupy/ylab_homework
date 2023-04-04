@@ -4,6 +4,7 @@ import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import org.postgresql.ds.PGSimpleDataSource;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
@@ -12,11 +13,9 @@ import java.sql.SQLException;
 import java.util.concurrent.TimeoutException;
 
 @Configuration
+@ComponentScan("io.ylab.intensive.lesson05.eventsourcing.api")
+
 public class Config {
-    @Bean
-    public PersonApi personApi() {
-        return new PersonApiImpl(connectionToRabbitMq(), connectionToDb());
-    }
 
     @Bean
     public Connection connectionToRabbitMq() {

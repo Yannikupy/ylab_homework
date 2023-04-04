@@ -19,11 +19,6 @@ public class Config {
     }
 
     @Bean
-    public SQLQueryBuilder sqlQueryBuilder() throws SQLException {
-        return new SQLQueryBuilderImpl(pgDatabaseMetaData());
-    }
-
-    @Bean
     public DataSource dataSource() {
         PGSimpleDataSource dataSource = new PGSimpleDataSource();
         dataSource.setServerName("localhost");

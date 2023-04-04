@@ -18,15 +18,6 @@ import java.util.concurrent.TimeoutException;
 @Configuration
 @ComponentScan("io.ylab.intensive.lesson05.messagefilter")
 public class Config {
-    @Bean
-    public MessageFilter messageFilter() {
-        try {
-            return new MessageFilter(connectionToRabbit(), connectionToDb());
-        } catch (IOException | TimeoutException | SQLException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
 
     @Bean
     public com.rabbitmq.client.Connection connectionToRabbit() throws IOException, TimeoutException {

@@ -6,7 +6,7 @@ public class ApiApp {
     public static void main(String[] args) throws Exception {
         try (AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(Config.class)) {
             applicationContext.start();
-            PersonApi personApi = applicationContext.getBean(PersonApi.class);
+            PersonApi personApi = applicationContext.getBean(PersonApiImpl.class);
             personApi.savePerson(1L, "Yan", "Borisov", "Arturovich");
             personApi.savePerson(2L, "Artem", "Moskvin", "Aleksandrovich");
             System.out.println(personApi.findPerson(1L));

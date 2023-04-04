@@ -9,7 +9,7 @@ public class SQLQueryExtenderTest {
     public static void main(String[] args) throws SQLException {
         try (AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(Config.class)) {
             applicationContext.start();
-            SQLQueryBuilder queryBuilder = applicationContext.getBean("sqlQueryBuilder", SQLQueryBuilder.class);
+            SQLQueryBuilder queryBuilder = applicationContext.getBean(SQLQueryBuilderImpl.class);
             List<String> tables = queryBuilder.getTables();
             // вот так сгенерируем запросы для всех таблиц что есть в БД
             for (String tableName : tables) {

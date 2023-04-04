@@ -5,6 +5,7 @@ import com.rabbitmq.client.ConnectionFactory;
 import io.ylab.intensive.lesson04.DbUtil;
 import org.postgresql.ds.PGSimpleDataSource;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
@@ -13,12 +14,9 @@ import java.sql.SQLException;
 import java.util.concurrent.TimeoutException;
 
 @Configuration
-public class Config {
+@ComponentScan("io.ylab.intensive.lesson05.eventsourcing.db")
 
-    @Bean
-    public DataProcessor dataProcessor() throws SQLException, IOException, TimeoutException {
-        return new DataProcessor(connectionToRabbitMq(), connectionToDb());
-    }
+public class Config {
 
     @Bean
     public java.sql.Connection connectionToDb() throws SQLException {
